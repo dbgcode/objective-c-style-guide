@@ -160,7 +160,7 @@ else {
 
 ## Comments
 
-When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted. Comments should start with small letters and generally should be single line.
+When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted. Comments should start with lower-case letters and should be single line.
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. *Exception: This does not apply to those comments used to generate documentation.*
 
@@ -168,7 +168,7 @@ Block comments should generally be avoided, as code should be as self-documentin
 
 ```objc
 // this type of commenting is preferred
-// short, sweet
+// short, sweet!
 [UIView animateWithDuration:1.0 animations:^{
     // something
 } completion:^(BOOL finished) {
@@ -179,7 +179,7 @@ Block comments should generally be avoided, as code should be as self-documentin
 **Not Preferred:**
 
 ```objc
-/* This type of commenting is not preffered. It starts with a capital letter and is multiline. */ 
+/* This type of commenting is not preffered. It starts with an upper-case letter and is multiline. Big, Ugly!*/ 
 [UIView animateWithDuration:1.0
                  animations:^{
                      // something
