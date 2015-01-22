@@ -450,9 +450,9 @@ When using `enum`s, it is recommended to use the new fixed underlying type speci
 
 ```objc
 typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
-  RWTLeftMenuTopItemMain,
-  RWTLeftMenuTopItemShows,
-  RWTLeftMenuTopItemSchedule
+    RWTLeftMenuTopItemMain,
+    RWTLeftMenuTopItemShows,
+    RWTLeftMenuTopItemSchedule
 };
 ```
 
@@ -460,10 +460,10 @@ You can also make explicit value assignments (showing older k-style constant def
 
 ```objc
 typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
-  RWTPinSizeMin = 1,
-  RWTPinSizeMax = 5,
-  RWTPinCountMin = 100,
-  RWTPinCountMax = 500,
+    RWTPinSizeMin = 1,
+    RWTPinSizeMax = 5,
+    RWTPinCountMin = 100,
+    RWTPinCountMax = 500,
 };
 ```
 
@@ -473,8 +473,8 @@ Older k-style constant definitions should be **avoided** unless writing CoreFoun
 
 ```objc
 enum GlobalConstants {
-  kMaxPinSize = 5,
-  kMaxPinCount = 500,
+    kMaxPinSize = 5,
+    kMaxPinCount = 500,
 };
 ```
 
@@ -486,20 +486,20 @@ When a case contains more than one line, braces should be added.
 
 ```objc
 switch (condition) {
-  case 1:
-    // ...
-    break;
-  case 2: {
-    // ...
-    // Multi-line example using braces
-    break;
-  }
-  case 3:
-    // ...
-    break;
-  default: 
-    // ...
-    break;
+    case 1:
+      // ...
+      break;
+    case 2: {
+      // ...
+      // Multi-line example using braces
+      break;
+    }
+    case 3:
+      // ...
+      break;
+    default: 
+      // ...
+      break;
 }
 
 ```
@@ -508,14 +508,14 @@ There are times when the same code can be used for multiple cases, and a fall-th
 
 ```objc
 switch (condition) {
-  case 1:
-    // ** fall-through! **
-  case 2:
-    // code executed for values 1 and 2
-    break;
-  default: 
-    // ...
-    break;
+    case 1:
+      // ** fall-through! **
+    case 2:
+      // code executed for values 1 and 2
+      break;
+    default: 
+      // ...
+      break;
 }
 
 ```
@@ -526,15 +526,15 @@ When using an enumerated type for a switch, 'default' is not needed.   For examp
 RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;
 
 switch (menuType) {
-  case RWTLeftMenuTopItemMain:
-    // ...
-    break;
-  case RWTLeftMenuTopItemShows:
-    // ...
-    break;
-  case RWTLeftMenuTopItemSchedule:
-    // ...
-    break;
+    case RWTLeftMenuTopItemMain:
+      // ...
+      break;
+    case RWTLeftMenuTopItemShows:
+      // ...
+      break;
+    case RWTLeftMenuTopItemSchedule:
+      // ...
+      break;
 }
 ```
 
@@ -591,7 +591,7 @@ Conditional bodies should use braces if necessary. In the case, where braces are
 **Preferred:**
 ```objc
 if (!error) {
-  return success;
+    return success;
 }
 ```
 or
@@ -604,7 +604,7 @@ if (!error) return success;
 **Not Preferred:**
 ```objc
 if (!error)
-  return success;
+    return success;
 ```
 
 ### Ternary Operator
@@ -692,11 +692,11 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 ```objc
 - (void)someMethod {
-  if (![someOther boolValue]) {
-	return;
-  }
+    if (![someOther boolValue]) {
+	  return;
+    }
 
-  //Do something important
+    //Do something important
 }
 ```
 
@@ -704,9 +704,9 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 ```objc
 - (void)someMethod {
-  if ([someOther boolValue]) {
-    //Do something important
-  }
+    if ([someOther boolValue]) {
+      //Do something important
+    }
 }
 ```
 
@@ -718,7 +718,7 @@ When methods return an error parameter by reference, switch on the returned valu
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
-  // Handle Error
+    // Handle Error
 }
 ```
 
@@ -727,7 +727,7 @@ if (![self trySomethingWithError:&error]) {
 NSError *error;
 [self trySomethingWithError:&error];
 if (error) {
-  // Handle Error
+    // Handle Error
 }
 ```
 
@@ -739,14 +739,14 @@ Some of Apple   s APIs write garbage values to the error parameter (if non-NULL)
 Singleton objects should use a thread-safe pattern for creating their shared instance.
 ```objc
 + (instancetype)sharedInstance {
-  static id sharedInstance = nil;
+    static id sharedInstance = nil;
 
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    sharedInstance = [[self alloc] init];
-  });
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+      sharedInstance = [[self alloc] init];
+    });
 
-  return sharedInstance;
+    return sharedInstance;
 }
 ```
 This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
