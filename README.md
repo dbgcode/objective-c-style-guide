@@ -328,7 +328,7 @@ Direct access to instance variables that 'back' properties should be avoided exc
 **Preferred:**
 
 ```objc
-@interface RWTTutorial : NSObject
+@interface DBGTutorial : NSObject
 
 @property (strong, nonatomic) NSString *tutorialName;
 
@@ -338,8 +338,10 @@ Direct access to instance variables that 'back' properties should be avoided exc
 **Not Preferred:**
 
 ```objc
-@interface RWTTutorial : NSObject {
-  NSString *tutorialName;
+@interface DBGTutorial : NSObject {
+    // avoid doing this
+    // use properties instead
+    NSString *tutorialName;
 }
 ```
 
