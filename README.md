@@ -180,7 +180,7 @@ Block comments should generally be avoided, as code should be as self-documentin
 **Not Preferred:**
 
 ```objc
-/* This type of commenting is not preffered. It starts with an upper-case letter and is multiline. Big, Ugly!*/ 
+/* This type of commenting is not preffered. It starts with an upper-case letter and is multiline. Big, Ugly!*/
 [UIView animateWithDuration:1.0
                  animations:^{
                      // something
@@ -215,7 +215,7 @@ Constants should be camel-case with all words capitalized and prefixed by the re
 **Preferred:**
 
 ```objc
-static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
+static NSTimeInterval const DBGTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
 **Not Preferred:**
@@ -229,7 +229,7 @@ Properties should be camel-case with the leading word being lowercase. Use auto-
 **Preferred:**
 
 ```objc
-// using camel-case with leading word being lower-case 
+// using camel-case with leading word being lower-case
 @property (strong, nonatomic) NSString *descriptiveVariableName;
 
 // element name prefixed for UI element property
@@ -247,7 +247,7 @@ id varnm;
 
 ### Underscores
 
-When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. 
+When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`.
 
 An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.
 
@@ -321,7 +321,7 @@ Variables should be named as descriptively as possible. Single letter variable n
 
 Asterisks indicating pointers belong with the variable, e.g., `NSString *text` not `NSString* text` or `NSString * text`, except in the case of constants.
 
-[Private properties](#private-properties) should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent. 
+[Private properties](#private-properties) should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
 
 Direct access to instance variables that 'back' properties should be avoided except in initializer methods (`init`, `initWithCoder:`, etc   ), `dealloc` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see [here](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
@@ -364,7 +364,7 @@ Property attributes should be explicitly listed, and will help new programmers w
 @property (nonatomic) NSString *tutorialName;
 ```
 
-Properties with mutable counterparts (e.g. NSString) should prefer `copy` instead of `strong`. 
+Properties with mutable counterparts (e.g. NSString) should prefer `copy` instead of `strong`.
 Why? Even if you declared a property as `NSString` somebody might pass in an instance of an `NSMutableString` and then change it without you noticing that.  
 
 **Preferred:**
@@ -429,9 +429,9 @@ Constants are preferred over in-line string literals or numbers, as they allow f
 **Preferred:**
 
 ```objc
-static NSString * const RWTAboutViewControllerCompanyName = @"RayWenderlich.com";
+static NSString * const DBGAboutViewControllerCompanyName = @"RayWenderlich.com";
 
-static CGFloat const RWTImageThumbnailHeight = 50.0;
+static CGFloat const DBGImageThumbnailHeight = 50.0;
 ```
 
 **Not Preferred:**
@@ -449,21 +449,21 @@ When using `enum`s, it is recommended to use the new fixed underlying type speci
 **For Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
-    RWTLeftMenuTopItemMain,
-    RWTLeftMenuTopItemShows,
-    RWTLeftMenuTopItemSchedule
+typedef NS_ENUM(NSInteger, DBGLeftMenuTopItemType) {
+    DBGLeftMenuTopItemMain,
+    DBGLeftMenuTopItemShows,
+    DBGLeftMenuTopItemSchedule
 };
 ```
 
 You can also make explicit value assignments (showing older k-style constant definition):
 
 ```objc
-typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
-    RWTPinSizeMin = 1,
-    RWTPinSizeMax = 5,
-    RWTPinCountMin = 100,
-    RWTPinCountMax = 500,
+typedef NS_ENUM(NSInteger, DBGGlobalConstants) {
+    DBGPinSizeMin = 1,
+    DBGPinSizeMax = 5,
+    DBGPinCountMin = 100,
+    DBGPinCountMax = 500,
 };
 ```
 
@@ -497,7 +497,7 @@ switch (condition) {
     case 3:
       // ...
       break;
-    default: 
+    default:
       // ...
       break;
 }
@@ -513,7 +513,7 @@ switch (condition) {
     case 2:
       // code executed for values 1 and 2
       break;
-    default: 
+    default:
       // ...
       break;
 }
@@ -523,16 +523,16 @@ switch (condition) {
 When using an enumerated type for a switch, 'default' is not needed.   For example:
 
 ```objc
-RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;
+DBGLeftMenuTopItemType menuType = DBGLeftMenuTopItemMain;
 
 switch (menuType) {
-    case RWTLeftMenuTopItemMain:
+    case DBGLeftMenuTopItemMain:
       // ...
       break;
-    case RWTLeftMenuTopItemShows:
+    case DBGLeftMenuTopItemShows:
       // ...
       break;
-    case RWTLeftMenuTopItemSchedule:
+    case DBGLeftMenuTopItemSchedule:
       // ...
       break;
 }
@@ -541,12 +541,12 @@ switch (menuType) {
 
 ## Private Properties
 
-Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `RWTPrivate` or `private`) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.
+Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `DBGPrivate` or `private`) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.
 
 **For Example:**
 
 ```objc
-@interface RWTDetailViewController ()
+@interface DBGDetailViewController ()
 
 @property (strong, nonatomic) GADBannerView *googleAdView;
 @property (strong, nonatomic) ADBannerView *iAdView;
@@ -644,11 +644,11 @@ See [Class Constructor Methods](#class-constructor-methods) for link to article 
 
 ## Class Constructor Methods
 
-Where class constructor methods are used, these should always return type of 'instancetype' and never 'id'. This ensures the compiler correctly infers the result type. 
+Where class constructor methods are used, these should always return type of 'instancetype' and never 'id'. This ensures the compiler correctly infers the result type.
 
 ```objc
 @interface Airplane
-+ (instancetype)airplaneWithType:(RWTAirplaneType)type;
++ (instancetype)airplaneWithType:(DBGAirplaneType)type;
 @end
 ```
 
@@ -776,4 +776,3 @@ If ours doesn't fit your tastes, have a look at some other style guides:
 The creation of this style guide was a collaborative effort from various raywenderlich.com team members under the direction of Nicholas Waynik.  The team includes: [Soheil Moayedi Azarpour](https://github.com/moayes), [Ricardo Rendon Cepeda](https://github.com/ricardo-rendoncepeda), [Tony Dahbura](https://github.com/tdahbura), [Colin Eberhardt](https://github.com/ColinEberhardt), [Matt Galloway](https://github.com/mattjgalloway), [Greg Heo](https://github.com/gregheo), [Matthijs Hollemans](https://github.com/hollance), [Christopher LaPollo](https://github.com/elephantronic), [Saul Mora](https://github.com/casademora), [Andy Pereira](https://github.com/macandyp), [Mic Pringle](https://github.com/micpringle), [Pietro Rea](https://github.com/pietrorea), [Cesare Rocchi](https://github.com/funkyboy), [Marin Todorov](https://github.com/icanzilb), [Nicholas Waynik](https://github.com/ndubbs), and [Ray Wenderlich](https://github.com/raywenderlich)
 
 We would like to thank the creators of the [New York Times](https://github.com/NYTimes/objective-c-style-guide) and [Robots & Pencils'](https://github.com/RobotsAndPencils/objective-c-style-guide) Objective-C Style Guides.  These two style guides provided a solid starting point for this guide to be created and based upon.
-
