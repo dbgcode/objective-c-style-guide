@@ -252,6 +252,44 @@ An exception to this: inside initializers, the backing instance variable (i.e. _
 
 Local variables should not contain underscores.
 
+**Preferred:**
+
+```objc
+// some method accessing/updating a property
+- (void)someMethod {
+    // accessing a property
+    NSString *propertyValue = self.someProperty;
+
+    // updating a property
+    self.someProperty = @"some new value";
+}
+
+// some setter method
+- (void)setSomeProperty:(NSString *)someProperty {
+    // should use underscore inside property accessors
+    _someProperty = someProperty;
+}
+```
+
+**Not Preferred:**
+
+```objc
+// some method accessing/updating a property
+- (void)someMethod {
+    // accessing a property
+    NSString *propertyValue = _someProperty;
+
+    // updating a property
+    _someProperty = @"some new value";
+}
+
+// some setter method
+- (void)setSomeProperty:(NSString *)someProperty {
+    // should not use self inside property accessors
+    self.someProperty = someProperty;
+}
+```
+
 ## Methods
 
 In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple's style).  Always include a keyword and be descriptive with the word before the argument which describes the argument.
