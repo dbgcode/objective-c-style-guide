@@ -198,16 +198,16 @@ Long, descriptive method and variable names are good.
 **Preferred:**
 
 ```objc
-UIButton *settingsButton;
+UIButton *buttonSettings;
 ```
 
 **Not Preferred:**
 
 ```objc
-UIButton *setBut;
+UIButton *butSet;
 ```
 
-A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. For any official raywenderlich.com books, starter kits, or tutorials, the prefix 'RWT' should be used.
+A prefix should always be used for class names and constants, however may be omitted for Core Data entity names. Prefixes can be based on the project name. In case the prefix cannot be derived from the project name, "DBG" should be used as the prefix.
 
 Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
 
@@ -223,12 +223,19 @@ static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDura
 static NSTimeInterval const fadetime = 1.7;
 ```
 
-Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual @synthesize statements unless you have good reason.
+Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual @synthesize statements unless you have good reason. UI element properties (like UIButton, UILabel, etc) should be prefixed by the UI element name without the prefix. Model properties (like FYMUser, DBGEmployee) should be prefixed by the model name without the prefix.
 
 **Preferred:**
 
 ```objc
+// using camel-case with leading word being lower-case 
 @property (strong, nonatomic) NSString *descriptiveVariableName;
+
+// element name prefixed for UI element property
+@property (strong, nonatomic) UIButton *buttonSomeName;
+
+// class name prefixed for model property
+@property (strong, nonatomic) NSString *employeeName;
 ```
 
 **Not Preferred:**
