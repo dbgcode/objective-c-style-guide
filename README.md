@@ -757,20 +757,6 @@ The physical files should be kept in sync with the Xcode project files in order 
 
 When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
-# Other Objective-C Style Guides
-
-If ours doesn't fit your tastes, have a look at some other style guides:
-
-* [Robots & Pencils](https://github.com/RobotsAndPencils/objective-c-style-guide)
-* [New York Times](https://github.com/NYTimes/objective-c-style-guide)
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
-* [GitHub](https://github.com/github/objective-c-conventions)
-* [Adium](https://trac.adium.im/wiki/CodingStyle)
-* [Sam Soffes](https://gist.github.com/soffes/812796)
-* [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
-* [Luke Redpath](http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html)
-* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
-
 ## Credits
 
 We would like to thank the creators of the [raywenderlich](https://github.com/raywenderlich/objective-c-style-guide) Objective-C Style Guide which provided a solid starting point for this guide to be created and based upon.
