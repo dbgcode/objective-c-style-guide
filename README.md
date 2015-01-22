@@ -113,9 +113,9 @@ Use `#pragma mark -` to categorize methods in functional groupings and protocol/
 **Preferred:**
 ```objc
 if (user.isHappy) {
-    //Do something
+    // do something
 } else {
-    //Do something else
+    // do something else
 }
 ```
 
@@ -123,10 +123,10 @@ if (user.isHappy) {
 ```objc
 if (user.isHappy)
 {
-   //Do something
+   // do something
 }
 else {
-     //Do something else
+     // do something else
 }
 ```
 
