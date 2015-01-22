@@ -586,7 +586,7 @@ Text and example taken from the [Cocoa Naming Guidelines](https://developer.appl
 
 ## Conditionals
 
-Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+Conditional bodies should use braces if necessary. In the case, where braces are not necessary (e.g., it is one line only), both conditional statement and the code line should be written in the same line. You should not add a single code line under a conditional statement to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
 **Preferred:**
 ```objc
@@ -594,17 +594,17 @@ if (!error) {
   return success;
 }
 ```
+or
+
+```objc
+// this is mainly used while early returning methods
+if (!error) return success;
+```
 
 **Not Preferred:**
 ```objc
 if (!error)
   return success;
-```
-
-or
-
-```objc
-if (!error) return success;
 ```
 
 ### Ternary Operator
